@@ -1,0 +1,44 @@
+{
+    "cities": {
+      "t0926": {
+        "date_mod": "2005-5-9",
+        "population": "92136",
+        "name": "下野"
+      },
+      "t0921": {
+        "date_mod": "2005-6-12",
+        "population": "51842",
+        "name": "宇都宮"
+      },
+      "t0931": {
+        "date_mod": "2005-7-17",
+        "population": "23789",
+        "name": "大田原"
+      },
+      "t0927": {
+        "name": "さくら",
+        "population": "87658400",
+        "date_mod": "2020-7-2"
+      },
+      "t0924": {
+        "date_mod": "2005-8-22",
+        "name": "足利",
+        "population": "46432"
+      },
+      "t0934": {
+        "population": "37871",
+        "name": "那須烏山",
+        "date_mod": "2005-3-21"
+      },
+      "t0928": {
+        "name": "矢板",
+        "population": "85126",
+        "date_mod": "2005-10-8"
+      },
+      "t0932": {
+        "date_mod": "2005-5-16",
+        "population": "72345",
+        "name": "鹿沼"
+      }
+    }
+  }
