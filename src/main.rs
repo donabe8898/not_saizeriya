@@ -3,32 +3,30 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs::File;
+use std::hash::Hash;
 use std::io::BufReader;
+use std::io::Write;
 
 #[derive(Serialize, Deserialize, Debug)]
 
-struct Cities {
-    cities: HashMap<String, HashMap<String, String>>,
+struct Member {
+    record: HashMap<String, usize>,
 }
 
 /// メインのかんすうー
 fn main() {
-    eprintln!("---start---");
-    let file_name = "test.json";
-    let file = File::open(file_name).unwrap();
-    let reader = BufReader::new(file);
+    serialize_and_deserialize();
+}
 
-    let deserialized: Cities = serde_json::from_reader(reader).unwrap();
+fn serialize_and_deserialize() {
+    let member = Member {
+        record: vec![("Donabe".to_string(), 1221), ("Minamin".to_string(), 0)]
+            .into_iter()
+            .collect(),
+    };
+    let serialized = serde_json::to_string(&member).unwrap();
+    println!("serialized: {}", serialized);
 
-    for (key, value) in deserialized.cities.iter() {
-        print!("{}", key);
-        print!("\t");
-        print!("{}", value["name"]);
-        print!("\t");
-        print!("{}", value["population"]);
-        print!("\t");
-        print!("{}", value["date_mod"]);
-    }
-
-    eprintln!("===End===")
+    let deserialized: Member = serde_json::from_str(&serialized).unwrap();
+    println!("deserialized: {:?}", deserialized);
 }
