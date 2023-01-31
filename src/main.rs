@@ -39,24 +39,35 @@ async fn age(
 }
 
 #[poise::command(slash_command, prefix_command)]
-/// 本番コマンド
+/// 組み合わせよう
 async fn generating(ctx: Context<'_>) -> Result<(), Error> {
-    // TODO:ファイル開く処理. asyncにする
-    // let file_name = "menu.json";
-    // let file = File::open(file_name).unwrap();
-    // let reader = BufReader::new(file);
-    // let deserialized_file: Menues = serde_json::from_reader(reader).unwrap();
+    // ファイルオープン
+    let deserialized = file_opening().await;
+    println!("{:?}", deserialized.menues["first"]);
 
     //乱数生成
     let random_tuple = generate_randnum().await;
+    let mut first_len: usize = deserialized.menues["first"].len();
+    let mut second_len: usize = deserialized.menues["second"].len();
     // TODO:ワードを選択
+    let mut first_words: Vec<&String> = Vec::new();
+    for (key, value) in deserialized.menues["first"].iter() {
+        first_words.push(key);
+    }
+    let mut second_words: Vec<&String> = Vec::new();
+    for (key, value) in deserialized.menues["second"].iter() {
+        second_words.push(key);
+    }
 
+    let fword: &String = first_words[random_tuple.0 % first_len];
+    let sword: &String = second_words[random_tuple.1 % second_len];
     // 返信
-    let res = format!("{},{}", random_tuple.0, random_tuple.1);
+    let res = format!("{}{}", fword, sword);
     ctx.say(res).await?;
     Ok(())
 }
 
+/// 乱数生成
 async fn generate_randnum() -> (usize, usize) {
     let mut rng = rand::thread_rng();
     let first_i: usize = rng.gen();
@@ -64,6 +75,14 @@ async fn generate_randnum() -> (usize, usize) {
     (first_i, second_i)
 }
 
+/// ファイルオープン
+async fn file_opening() -> Menues {
+    let file_name = "menu.json";
+    let file = File::open(file_name).unwrap();
+    let reader = BufReader::new(file);
+    let deserialized_file: Menues = serde_json::from_reader(reader).unwrap();
+    deserialized_file
+}
 /// main関数
 #[tokio::main]
 
