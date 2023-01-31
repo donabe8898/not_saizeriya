@@ -22,11 +22,11 @@ cargo build --release
 
 ## Issues
 
-- [] メニューの追加
+- [ ] メニューの追加
 
-- [] Warningの掃除
+- [ ] Warningの掃除
 
-- [] モジュール分割
+- [ ] モジュール分割
 # License
 
 MIT License
