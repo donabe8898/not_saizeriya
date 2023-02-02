@@ -29,9 +29,15 @@ cargo build --release
 
 - [ ] メニューの追加
 
-- [ ] Warningの掃除
+- [ ] おまけ機能の実装
 
-- [ ] モジュール分割
+    - [ ] 1000円ガチャ
+
+    - [ ] 店舗検索
+
+- [x] Warningの掃除
+
+- [x] モジュール分割
 # License
 
 MIT License
