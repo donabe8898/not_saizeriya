@@ -1,21 +1,20 @@
-#[macro_use]
-extern crate log;
-extern crate rand;
-
+// #[macro_use]
+// extern crate log;
+// extern crate rand;
 use rand::Rng;
 
-use poise::extract_slash_argument;
-use poise::futures_util::future::ok;
+// use poise::extract_slash_argument;
+// use poise::futures_util::future::ok;
 use poise::serenity_prelude as serenity;
 use serde::{Deserialize, Serialize};
 
 use std::collections::HashMap;
 use std::env;
-use std::fmt::format;
+// use std::fmt::format;
 use std::fs::File;
-use std::hash::Hash;
+// use std::hash::Hash;
 use std::io::BufReader;
-use std::io::Write;
+// use std::io::Write;
 
 struct Data {}
 #[derive(Serialize, Deserialize, Debug)]
@@ -47,15 +46,15 @@ async fn generating(ctx: Context<'_>) -> Result<(), Error> {
 
     //乱数生成
     let random_tuple = generate_randnum().await;
-    let mut first_len: usize = deserialized.menues["first"].len();
-    let mut second_len: usize = deserialized.menues["second"].len();
+    let first_len: usize = deserialized.menues["first"].len();
+    let second_len: usize = deserialized.menues["second"].len();
     // TODO:ワードを選択
     let mut first_words: Vec<&String> = Vec::new();
-    for (key, value) in deserialized.menues["first"].iter() {
+    for (key, _) in deserialized.menues["first"].iter() {
         first_words.push(key);
     }
     let mut second_words: Vec<&String> = Vec::new();
-    for (key, value) in deserialized.menues["second"].iter() {
+    for (key, _) in deserialized.menues["second"].iter() {
         second_words.push(key);
     }
 
@@ -83,6 +82,7 @@ async fn file_opening() -> Menues {
     let deserialized_file: Menues = serde_json::from_reader(reader).unwrap();
     deserialized_file
 }
+
 /// main関数
 #[tokio::main]
 
