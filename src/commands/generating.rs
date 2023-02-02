@@ -11,7 +11,7 @@ type Context<'a> = poise::Context<'a, Data, Error>;
 /// 組み合わせよう
 pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     // ファイルオープン
-    let deserialized = file_opening().await;
+    let deserialized = file_opening("menu_words.json").await;
 
     //乱数生成
     let random_tuple = generate_randnum().await;
