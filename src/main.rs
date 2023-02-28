@@ -1,8 +1,7 @@
-use poise::serenity_prelude as serenity;
-
-use std::env;
-
 mod commands;
+
+use poise::serenity_prelude as serenity;
+use std::env;
 
 /// main関数
 #[tokio::main]
@@ -13,7 +12,10 @@ async fn main() {
     let token = env::var("TOKEN").expect("missing token");
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
-            commands: vec![commands::generating::generating()], // Botに使いするコマンドのvector
+            commands: vec![
+                commands::generating::generating(),
+                commands::generating::lots(),
+            ], // Botに使いするコマンドのvector
             ..Default::default()
         })
         .token(token)
