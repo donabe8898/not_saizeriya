@@ -13,7 +13,7 @@ pub struct MenuWords {
 pub struct Menu {
     pub number: String,
     pub item: String,
-    pub value: usize,
+    pub value: isize,
 }
 
 #[derive(Serialize, Deserialize)]

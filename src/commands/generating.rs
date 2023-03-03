@@ -50,7 +50,8 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
 #[poise::command(slash_command, prefix_command)]
 // 1000円ガチャ
 pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
-    let deserialized_vec = open_menu().await; //
+    let deserialized_vec = open_menu().await;
+
     let vec_length = deserialized_vec.menues.len();
 
     let mut menues_struct = Vec::new();
@@ -61,16 +62,13 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
 
     let mut selected_menues = Vec::new();
 
-    let balance: usize = 1000;
+    let mut balance: isize = 1000;
 
-    while balance >= 0 {
+    loop {
         // 乱数生成
         let random_number = generate_randnum().await;
 
-        // TODO: indexに絞り込み
         let index = random_number.0 % vec_length;
-
-        // TODO: メニュー選択とselected_menuesに追加
 
         let selected_menu_number = menues_struct[index].0;
 
@@ -78,21 +76,27 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
 
         let selected_menu_value = menues_struct[index].2;
 
-        // TODO: balance減
-
-        if balance - selected_menu_value > 0 {
+        if balance - selected_menu_value >= 0 {
             selected_menues.push((
                 selected_menu_number,
                 selected_menu_item,
                 selected_menu_value,
             ));
+            balance -= selected_menu_value;
+        }
+        if balance == 0 {
+            break;
         }
     }
 
     let mut res = String::new();
-    for (num, itm, val) in &selected_menues {
-        let to_stringing = String::from(format!("{} {} {}\n", num, itm, val));
-        res += &to_stringing;
+
+    // res = vec_length.to_string();
+    // TODO: エラー原因たぶんここ
+    for (num, itm, val) in selected_menues {
+        println!("{} {} {}\n", num, itm, val);
+        let fm = &format!("{} {} {}\n", num, itm, val);
+        res += fm;
     }
     ctx.say(res).await?;
     Ok(())
