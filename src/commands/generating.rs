@@ -46,7 +46,6 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     ctx.say(res).await?;
     Ok(())
 }
-
 #[poise::command(slash_command, prefix_command)]
 // 1000円ガチャ
 pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
@@ -90,12 +89,10 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
     }
 
     let mut res = String::new();
-
-    // res = vec_length.to_string();
-    // TODO: エラー原因たぶんここ
+ 
     for (num, itm, val) in selected_menues {
         println!("{} {} {}\n", num, itm, val);
-        let fm = &format!("{} {} {}\n", num, itm, val);
+        let fm = &format!("{} {} {}円\n", num, itm, val);
         res += fm;
     }
     ctx.say(res).await?;
