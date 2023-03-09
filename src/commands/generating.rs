@@ -89,7 +89,7 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
     }
 
     let mut res = String::new();
- 
+
     for (num, itm, val) in selected_menues {
         println!("{} {} {}\n", num, itm, val);
         let fm = &format!("{} {} {}円\n", num, itm, val);
