@@ -1,0 +1,10 @@
+```
+/help           ヘルプの表示
+
+/generating     無いメニューを生成
+/lots           1000円ガチャ
+
+/info [subcmd]  いろんな情報を提供
+    ├ version   Botのバージョン
+    └ pacman    pacman -Syu
+```

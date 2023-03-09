@@ -9,10 +9,10 @@ use components::{
 
 pub struct Data {}
 
-type Error = Box<dyn std::error::Error + Send + Sync>;
-type Context<'a> = poise::Context<'a, Data, Error>;
+pub type Error = Box<dyn std::error::Error + Send + Sync>;
+pub type Context<'a> = poise::Context<'a, Data, Error>;
 
-#[poise::command(slash_command, prefix_command)]
+#[poise::command(slash_command)]
 /// 組み合わせよう
 pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     // ファイルオープン
@@ -46,8 +46,8 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     ctx.say(res).await?;
     Ok(())
 }
-#[poise::command(slash_command, prefix_command)]
-// 1000円ガチャ
+#[poise::command(slash_command)]
+/// 1000円ガチャ
 pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
     let deserialized_vec = open_menu().await;
 

@@ -2,7 +2,7 @@ mod commands;
 
 use poise::serenity_prelude as serenity;
 use std::env;
-
+pub struct Data {}
 /// main関数
 #[tokio::main]
 
@@ -15,6 +15,8 @@ async fn main() {
             commands: vec![
                 commands::generating::generating(),
                 commands::generating::lots(),
+                commands::support::info(),
+                commands::support::help(),
             ], // Botに使いするコマンドのvector
             ..Default::default()
         })

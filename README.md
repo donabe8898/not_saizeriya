@@ -2,28 +2,35 @@
 
 存在しないサイゼリヤのメニューを考えてくれる
 
-# 使い方
+
+# Usage
+
+```
+NAME:
+    not_saizeriya
+
+COMMAND:
+    /generating     存在しないかもしれないメニューを出力
+    /lots           1000円ガチャ
+```
+
+# Install
 
 - dotenv.sampleを参考に.envにTOKENを入れる
 
-- あとは自鯖にBotを導入するだけ
+- ビルド
 
-## コマンド
-
-Discordのテキストチャンネルで`/generating`というスラッシュコマンドを打つ
-
-# ビルド
+# Build
 
 ```
 cargo build --release
 ```
 
-# その他
+# Other
 
 - menu.jsonの中身は自由に追加しても動くと思う. ありそうでなさそうなメニューを追加してみてくれ
 
 - menu.jsonをtarget/releaseフォルダに入れないとパニック起こすみたいです
-# コントリビュート
 
 ## Issues
 
@@ -38,6 +45,11 @@ cargo build --release
 - [x] Warningの掃除
 
 - [x] モジュール分割
+
+# Author
+
+donabe8898
+
 # License
 
 MIT License
