@@ -30,7 +30,6 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     for (key, _) in deserialized.menu_words["first"].iter() {
         first_words.push(key);
     }
-
     let mut second_words: Vec<&String> = Vec::new();
 
     for (key, _) in deserialized.menu_words["second"].iter() {
