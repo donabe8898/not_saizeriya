@@ -55,7 +55,7 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
     let mut menues_struct = Vec::new();
 
     for j in deserialized_vec.menues.iter() {
-        menues_struct.push((&j.number, &j.item, &j.value));
+        menues_struct.push((&j.number, &j.item, j.value));
     }
 
     let mut selected_menues = Vec::new();
@@ -72,7 +72,7 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
 
         let selected_menu_item = menues_struct[index].1;
 
-        let selected_menu_value = menues_struct[index].2;
+        let selected_menu_value = menues_struct[index].2 as isize;
 
         if balance - selected_menu_value >= 0 {
             selected_menues.push((
