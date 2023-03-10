@@ -24,7 +24,6 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
     let first_len: usize = deserialized.menu_words["first"].len();
 
     let second_len: usize = deserialized.menu_words["second"].len();
-    // TODO:ワードを選択
 
     let mut first_words: Vec<&String> = Vec::new();
 
