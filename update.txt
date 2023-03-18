@@ -1,0 +1,20 @@
+```
+version 0.4.1
+
+[version 0.4.1の変更点]
+
+- /lots コマンド使用時に酒類を含むかどうかの項目を実装
+- /generating コマンドの語彙を増加
+
+
+========
+Copyright © 2022-2023 Yugo Okamoto a.k.a donabe8898
+
+MIT License
+https://opensource.org/license/mit/
+
+Repository
+https://github.com/donabe8898/not_saizeriya
+
+========
+```

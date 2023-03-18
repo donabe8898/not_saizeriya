@@ -10,8 +10,16 @@ NAME:
     not_saizeriya
 
 COMMAND:
-    /generating     存在しないかもしれないメニューを出力
-    /lots           1000円ガチャ
+    /help           ヘルプの表示
+
+    /generating     無いメニューを生成
+    /lots [arg]     1000円ガチャ
+        ├ true      お酒ありで出力
+        └ false     お酒なしで出力
+
+    /info [subcmd]  いろんな情報を提供
+        ├ version   Botのバージョン,アップデート情報
+        └ pacman    pacman -Syu
 ```
 
 # Install
@@ -30,7 +38,7 @@ cargo build --release
 
 - menu.jsonの中身は自由に追加しても動くと思う. ありそうでなさそうなメニューを追加してみてくれ
 
-- menu.jsonをtarget/releaseフォルダに入れないとパニック起こすみたいです
+- menu.json, menu_words.json, help.txt, update.txtをtarget/releaseフォルダに入れて下さい
 
 ## Issues
 

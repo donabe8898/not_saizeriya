@@ -19,7 +19,15 @@ pub async fn info(_ctx: Context<'_>, arg: String) -> Result<(), Error> {
 
 #[poise::command(slash_command)]
 pub async fn version(ctx: Context<'_>) -> Result<(), Error> {
-    ctx.say("not_saizeriya 0.4.0").await?;
+    let path: &str = "update.txt";
+    let input: File = File::open(path)?;
+    let buffred: BufReader<File> = BufReader::new(input);
+    let mut res: String = String::new();
+    for line in buffred.lines() {
+        res += &line?;
+        res += "\n";
+    }
+    ctx.say(res).await?;
     Ok(())
 }
 #[poise::command(slash_command)]
