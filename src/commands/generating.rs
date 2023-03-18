@@ -46,7 +46,7 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
 }
 #[poise::command(slash_command)]
 /// 1000円ガチャ
-pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
+pub async fn lots(ctx: Context<'_>, liquor: bool) -> Result<(), Error> {
     let deserialized_vec = open_menu().await;
 
     let vec_length = deserialized_vec.menues.len();
@@ -54,7 +54,7 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
     let mut menues_struct = Vec::new();
 
     for j in deserialized_vec.menues.iter() {
-        menues_struct.push((&j.number, &j.item, j.value));
+        menues_struct.push((&j.number, &j.item, j.value, j.alcohol));
     }
 
     let mut selected_menues = Vec::new();
@@ -72,6 +72,12 @@ pub async fn lots(ctx: Context<'_>) -> Result<(), Error> {
         let selected_menu_item = menues_struct[index].1;
 
         let selected_menu_value = menues_struct[index].2 as isize;
+
+        let selected_menu_alcohol = menues_struct[index].3;
+
+        if selected_menu_alcohol && !liquor {
+            continue;
+        }
 
         if balance - selected_menu_value >= 0 {
             selected_menues.push((

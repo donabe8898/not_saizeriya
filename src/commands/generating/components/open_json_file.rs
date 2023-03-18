@@ -14,6 +14,7 @@ pub struct Menu {
     pub number: String,
     pub item: String,
     pub value: usize,
+    pub alcohol: bool,
 }
 
 #[derive(Serialize, Deserialize)]
