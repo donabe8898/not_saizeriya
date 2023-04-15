@@ -8,6 +8,7 @@ version 0.4.2
 
 
 ========
+
 Copyright © 2022-2023 Yugo Okamoto a.k.a donabe8898
 
 MIT License

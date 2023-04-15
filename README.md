@@ -36,9 +36,9 @@ cargo build --release
 
 # Other
 
-- menu.jsonの中身は自由に追加しても動くと思う. ありそうでなさそうなメニューを追加してみてくれ
+- menu.jsonの中身は自由に追加しても動く.
 
-- menu.json, menu_words.json, help.txt, update.txtをtarget/releaseフォルダに入れて下さい
+- menu.json, menu_words.json, help.txt, update.txtをtarget/releaseフォルダに入れる.
 
 ## Issues
 
