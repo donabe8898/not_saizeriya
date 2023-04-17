@@ -1,14 +1,16 @@
+//! 無いサイゼリヤのメニューを生成するモジュール
+
 mod components;
 
+/// 依存モジュール
 use components::{
     generate_random_num::generate_randnum, open_json_file::open_menu,
     open_json_file::open_menuwords,
 };
 
-// use serde::de::value;
-
 pub struct Data {}
 
+/// エラーハンドル用
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
 pub type Context<'a> = poise::Context<'a, Data, Error>;
 
@@ -20,18 +22,17 @@ pub async fn generating(ctx: Context<'_>) -> Result<(), Error> {
 
     //乱数生成
     let random_tuple = generate_randnum().await;
-
     let first_len: usize = deserialized.menu_words["first"].len();
-
     let second_len: usize = deserialized.menu_words["second"].len();
-
     let mut first_words: Vec<&String> = Vec::new();
 
+    // 第一語彙を決定
     for (key, _) in deserialized.menu_words["first"].iter() {
         first_words.push(key);
     }
     let mut second_words: Vec<&String> = Vec::new();
 
+    // 第二語彙を決定
     for (key, _) in deserialized.menu_words["second"].iter() {
         second_words.push(key);
     }

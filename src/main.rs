@@ -1,15 +1,21 @@
+//! 無いサイゼリヤのメニューと1000円ガチャのDiscodBot
+
 mod commands;
 
 use poise::serenity_prelude as serenity;
 use std::env;
-pub struct Data {}
-/// main関数
-#[tokio::main]
 
+pub struct Data {}
+
+#[tokio::main]
+/// mainメソッド
 async fn main() {
+    // envファイルオープン
     dotenv::dotenv().ok();
     env_logger::init();
+    // envファイルからtokenを取得
     let token = env::var("TOKEN").expect("missing token");
+    // Botフレームワーク定義
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
             commands: vec![
@@ -17,7 +23,7 @@ async fn main() {
                 commands::generating::lots(),
                 commands::support::info(),
                 commands::support::help(),
-            ], // Botに使いするコマンドのvector
+            ], // Botに使うコマンドを列挙
             ..Default::default()
         })
         .token(token)

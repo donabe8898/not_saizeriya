@@ -1,14 +1,19 @@
+//! helpコマンド等のサポート系コマンドモジュール
+
 use super::generating;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+/// エラーハンドル用
 type Error = generating::Error;
 type Context<'a> = poise::Context<'a, generating::Data, Error>;
 
 #[poise::command(slash_command, subcommands("version", "pacman"))]
 /// infomation and other...
 pub async fn info(_ctx: Context<'_>, arg: String) -> Result<(), Error> {
+    // 第2引数格納用
     let str_arg: &str = &arg;
+    // パターンマッチで使用メソッドを判別
     match str_arg {
         "version" => version(),
         "pacman" => pacman(),
@@ -18,6 +23,7 @@ pub async fn info(_ctx: Context<'_>, arg: String) -> Result<(), Error> {
 }
 
 #[poise::command(slash_command)]
+/// botバージョン出力サブコマンド
 pub async fn version(ctx: Context<'_>) -> Result<(), Error> {
     let path: &str = "update.txt";
     let input: File = File::open(path)?;

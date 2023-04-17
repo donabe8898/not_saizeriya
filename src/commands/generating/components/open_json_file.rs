@@ -1,3 +1,5 @@
+//! Jsonファイルを開いて返すモジュール
+
 use serde::{Deserialize, Serialize};
 
 use std::collections::HashMap;

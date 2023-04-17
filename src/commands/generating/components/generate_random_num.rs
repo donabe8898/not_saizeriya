@@ -1,3 +1,5 @@
+//! 乱数生成モジュール
+
 use rand::Rng;
 
 pub async fn generate_randnum() -> (usize, usize) {
