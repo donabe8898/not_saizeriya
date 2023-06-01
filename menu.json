@@ -124,12 +124,6 @@
             "alcohol":false
         },
         {
-            "number":"PA06",
-            "item":"エビとブロッコリーのオーロラソース",
-            "value":500,
-            "alcohol":false
-        },
-        {
             "number":"PA07",
             "item":"スパゲッティポモドーロ",
             "value":400,
@@ -163,6 +157,12 @@
             "number":"PA25",
             "item":"ペンネアラビアータ",
             "value":400,
+            "alcohol":false
+        },
+        {
+            "number":"PA14",
+            "item":"エビとアスパラガスのオーロラソース",
+            "value":500,
             "alcohol":false
         },
 
@@ -216,48 +216,29 @@
             "alcohol":false
         },
         {
-            "number":"SA52",
-            "item":"小エビのサラダ Lサイズ",
-            "value":500,
-            "alcohol":false
-        },
-        {
-            "number":"SA06",
-            "item":"チキンのシーザーサラダ",
+            "number":"SA03",
+            "item":"チキンのサラダ",
             "value":350,
             "alcohol":false
         },
         {
-            "number":"SA56",
-            "item":"チキンのシーザーサラダ Lサイズ",
-            "value":500,
-            "alcohol":false
-        },
-        {
-            "number":"SA04",
-            "item":"ガーデンサラダ",
+            "number":"SA05",
+            "item":"わかめサラダ",
             "value":350,
             "alcohol":false
         },
         {
-            "number":"SA54",
-            "item":"ガーデンサラダ Lサイズ",
-            "value":500,
+            "number":"SA08",
+            "item":"グリーンサラダ",
+            "value":350,
             "alcohol":false
         },
         {
-            "number":"SA12",
-            "item":"オリーブアンチョビのガーデンサラダ",
-            "value":450,
+            "number":"SA07",
+            "item":"モッツァレラサラダ",
+            "value":400,
             "alcohol":false
         },
-        {
-            "number":"SA62",
-            "item":"オリーブアンチョビのガーデンサラダ Lサイズ",
-            "value":600,
-            "alcohol":false
-        },
-
         {
             "number":"SU01",
             "item":"コーンクリームスープ",
@@ -265,8 +246,14 @@
             "alcohol":false
         },
         {
-            "number":"SU09",
-            "item":"白菜のクラムチャウダー",
+            "number":"SU03",
+            "item":"パンプキンスープ",
+            "value":150,
+            "alcohol":false
+        },
+        {
+            "number":"SU07",
+            "item":"たまねぎのズッパ",
             "value":300,
             "alcohol":false
         },
@@ -309,7 +296,7 @@
         },
         {
             "number":"AA25",
-            "item":"柔らか青豆とペコリーノチーズの温サラダ",
+            "item":"柔らか青豆の温サラダ",
             "value":200,
             "alcohol":false
         },
@@ -356,12 +343,6 @@
             "alcohol":false
         },
         {
-            "number":"AA18",
-            "item":"煉獄のたまご",
-            "value":300,
-            "alcohol":false
-        },
-        {
             "number":"AA26",
             "item":"イタリア風もつ煮込み",
             "value":350,
@@ -402,6 +383,12 @@
             "number":"DE05",
             "item":"イタリアンジェラート",
             "value":250,
+            "alcohol":false
+        },
+        {
+            "number":"DE25",
+            "item":"シチリア産ピスタチオのジェラート",
+            "value":350,
             "alcohol":false
         },
         {
