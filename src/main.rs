@@ -1,6 +1,8 @@
 //! 無いサイゼリヤのメニューと1000円ガチャのDiscodBot
 
-mod commands;
+// mod commands;
+mod generating;
+mod support;
 
 use poise::serenity_prelude as serenity;
 use std::env;
@@ -19,10 +21,10 @@ async fn main() {
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
             commands: vec![
-                commands::generating::generating(),
-                commands::generating::lots(),
-                commands::support::info(),
-                commands::support::help(),
+                generating::generating(),
+                generating::lots(),
+                support::info(),
+                support::help(),
             ], // Botに使うコマンドを列挙
             ..Default::default()
         })
@@ -31,7 +33,7 @@ async fn main() {
         .setup(|ctx, _ready, framework| {
             Box::pin(async move {
                 poise::builtins::register_globally(ctx, &framework.options().commands).await?;
-                Ok(commands::generating::Data {})
+                Ok(generating::Data {})
             })
         });
     framework.run().await.unwrap();
