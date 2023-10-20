@@ -93,7 +93,7 @@ pub async fn lots(ctx: Context<'_>, liquor: bool) -> Result<(), Error> {
         }
     }
 
-    let mut res = String::new();
+    let mut res: String = String::new();
 
     for (num, itm, val) in selected_menues {
         println!("{} {} {}\n", num, itm, val);
